@@ -1,0 +1,26 @@
+* { user-select: none; -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: #070a12; display: flex; justify-content: center; align-items: center; font-family: 'Segoe UI', monospace; overflow: hidden; }
+#gameWrapper { position: relative; border-radius: 24px; border: 2px solid #ffb74d; box-shadow: 0 20px 35px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08); max-width: 100vw; max-height: 100vh; }
+canvas { display: block; border-radius: 22px; }
+.level-label { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); border: 1px solid #ffb74d; border-radius: 20px; padding: 4px 18px; font-size: 14px; color: #ffb74d; font-weight: bold; font-family: monospace; backdrop-filter: blur(4px); pointer-events: none; z-index: 5; letter-spacing: 2px; }
+.controls-hint { position: absolute; bottom: 12px; left: 12px; background: rgba(0,0,0,0.55); border-radius: 20px; padding: 4px 12px; font-size: 11px; color: #ddd; font-family: monospace; backdrop-filter: blur(2px); pointer-events: none; z-index: 5; }
+.settings-btn { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; background: rgba(0,0,0,0.6); border: 1px solid #ffb74d; border-radius: 10px; color: #ffb74d; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); transition: all 0.2s; z-index: 100; }
+.settings-btn:hover { background: rgba(255,183,77,0.2); transform: scale(1.1); }
+.settings-panel { position: absolute; top: 54px; right: 10px; width: 180px; background: rgba(10,15,30,0.95); border: 1px solid #ffb74d; border-radius: 14px; padding: 16px; color: #ddd; font-size: 13px; backdrop-filter: blur(8px); display: none; flex-direction: column; gap: 12px; z-index: 101; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+.settings-panel.active { display: flex; }
+.settings-panel h3 { margin: 0 0 4px 0; color: #ffb74d; font-size: 14px; text-align: center; border-bottom: 1px solid rgba(255,183,77,0.3); padding-bottom: 8px; }
+.toggle-row { display: flex; align-items: center; justify-content: space-between; }
+.toggle-row label { color: #ccc; font-size: 12px; display: flex; align-items: center; gap: 6px; }
+.toggle-switch { position: relative; width: 36px; height: 20px; background: #444; border-radius: 10px; cursor: pointer; transition: background 0.2s; }
+.toggle-switch.on { background: #ffb74d; }
+.toggle-switch::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; transition: transform 0.2s; }
+.toggle-switch.on::after { transform: translateX(16px); }
+.mobile-controls { position: absolute; bottom: 8px; left: 0; width: 100%; height: 90px; display: none; justify-content: space-between; align-items: center; padding: 0 16px; z-index: 50; pointer-events: none; }
+.mobile-btn { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 2px solid rgba(255,183,77,0.35); color: rgba(255,183,77,0.8); font-size: 24px; display: flex; align-items: center; justify-content: center; pointer-events: auto; touch-action: manipulation; backdrop-filter: blur(4px); }
+.mobile-btn:active { background: rgba(255,183,77,0.25); transform: scale(0.95); }
+.mobile-group { display: flex; gap: 12px; pointer-events: none; }
+.mobile-group .mobile-btn { pointer-events: auto; }
+@media (hover: none) and (pointer: coarse) {
+  .mobile-controls { display: flex; }
+  .controls-hint { display: none; }
+}
